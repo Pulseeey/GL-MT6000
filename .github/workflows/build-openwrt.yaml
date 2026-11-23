@@ -64,16 +64,16 @@ jobs:
         with:
           path: "builder_repo"
 
+      - name: Clone luci-theme-proton2025
+        run: |
+          git clone https://github.com/ChesterGoodiny/luci-theme-proton2025 package/luci-theme-proton2025
+          
       - name: Update and install feeds
         run: |
           ./scripts/feeds update -a
           ./scripts/feeds install -a
           # run again because sometimes it misses some dependencies
           ./scripts/feeds install -a
-
-      - name: Clone Custom Proton Theme
-        run: |
-          git clone https://github.com/ChesterGoodiny/luci-theme-proton2025.git package/luci-theme-proton
           
       - name: Setup configuration and custom files
         run: |
